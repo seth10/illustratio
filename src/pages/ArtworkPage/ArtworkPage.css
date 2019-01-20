@@ -1,0 +1,9 @@
+.fake-input-group input[disabled] {
+    background-color: initial;
+}
+button[data-target="#visited"][aria-expanded="true"]:before {
+    content: "\2713 ";
+}
+/*div.btn-group-toggle[data-toggle="buttons"] label.active:before {
+    content: "\2665 ";
+}*/

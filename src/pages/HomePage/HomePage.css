@@ -1,0 +1,23 @@
+@media only screen 
+  and (max-device-width: 667px) {
+    div#scrollingBackground {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1000;
+        background: url("blurredArt.jpg") repeat-y;
+        animation: 50s scroll infinite linear;
+    }
+
+    p, label {
+        text-shadow: 0 0 2px white, 0 0 10px white;
+    }
+
+    @keyframes scroll{
+      100%{
+        background-position: 0px -1000px;
+      }
+    }
+}
