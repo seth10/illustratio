@@ -1,68 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# illustratio
 
-## Available Scripts
+This is a project Billy Carrington and Seth T worked on for HopHacks Fall 2018.
 
-In the project directory, you can run:
+## Project Description
 
-### `npm start`
+There is plenty of fantastic art in Baltimore which goes unknown and underappreciated. We want to bring excitement and education to the public in the wide array of art available in the city. We want to promote social interaction to bring people to appreciate these works, and encourage cultured discussion.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+illustratio is an app that informs users about the artwork around Baltimore along with informing them about the different mediums of art. When a user logs in, they can choose to be informed about a random piece of art. This will tell the user a bit about the art, such as location, name, artist, and medium/type. If the type was given in the data set for that piece, there will also be a small factoid on that type of medium. The user can then like the artwork that they have seen if they appreciated that piece.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Technologies
 
-### `npm test`
+We wanted to try out many different technologies during the hackathon to learn as much as we could. At first we were using an Amazon Linux EC2 instance with tmux running and both of us logged in to collaborate. Later we switch to GCP and tried out the Google Cloud Shell for development.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Our app is running on NodeJS, initialized with create-react-app. Bootstrap for style, react-bootstrap for integrated components, React router, standard stuff.
 
-### `npm run build`
+The core of our app is MongoDB Stitch. There was a great midnight workshop on it where Adam, Haley, and Aydrian inspired us to use it. MongoDB Stitch handles our users/authentication and rules/access, while mongoDB Atlas actually stores our database and collections.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We used Stae for the data set and focused around the Civic Hack Theme ("Solve some of the most common & pressing problems that Baltimore city officials have identified.")
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Later Work 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The hackathon was from Friday, September 16th to Sunday, September 18th. Afterwards we just left things as they were. We had trouble making a production build of our app, so for the judging/demos we ran the create-react-app development server on the GCP cloud shell. This mean that after the hackathon our hack was no longer accessible unless I reconnected to the Google Cloud Shell and started it up again.
 
-### `npm run eject`
+In January 2019 I am now trying to get everything up and running and hosted more permanently. First I zipped up everything on the GCP cloud shell and moved it over to a new EC2 instance. Here it looks like the react-scripts were broken but I was able to manually strt the development server and actually got a production build made. I tried out creating an S3 bucket from the command line for the first time (after assigning an IAM role to the instance) and, after fiddling about with the region arguments, got it created and pushed up the static resources. After enabling static website hosting on that bucket, I got our first constant deployment.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+After this I realized there was no real need for that EC2 instance, so I set to get illustratio running on my local machine. To get the latest benefits (and hopefully get the start/build scripts working normally again), I made a new create-react-app. I copied over the source and tried to change as little as possible. After a bit of debugging (the btn-default class worked in bootstrap 4.1.3 even though V4 dropped it, but today I got 4.2.1 and it didn't work) I got it running and pushed it to this repository.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Just for fun I got GPG signing working on my local machine for commits I push from now on (in the past only my commits from the GitHub website editor were Verified). My next steps are to host the static files on GitHub Pages and setup a CICD pipeline to automatically build when I push new code to master and host it on GitHub Pages. I don't want to leave a Jenkins container running in ECS 24/7 so I might try to just get a Lambda to `git clone` and build/push.
