@@ -16,7 +16,7 @@ class ArtworkPage extends Component {
                 //let types = data[0].data.type.match(/\w+/g).map(String.prototype.toLowerCase)
                 let typeWords = data[0].data.type.match(/\w+/g).map(word => word.toLowerCase())
                 this.props.mongodb.db('illustratio').collection('materials').find({ 'keyword': {$in: typeWords} }).asArray().then(data2 => {
-                    this.setState({ typeFlavor: data2[0].description })
+                    data2[0] && this.setState({ typeFlavor: data2[0].description })
                 });
             }
         })
