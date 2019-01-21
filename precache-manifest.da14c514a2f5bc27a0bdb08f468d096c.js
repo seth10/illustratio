@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "445a40d065c6b03735a0",
+    "revision": "889ce4ef3b773b84bb0f",
     "url": "/illustratio/static/css/main.22587d0e.chunk.css"
   },
   {
-    "revision": "445a40d065c6b03735a0",
-    "url": "/illustratio/static/js/main.445a40d0.chunk.js"
+    "revision": "889ce4ef3b773b84bb0f",
+    "url": "/illustratio/static/js/main.889ce4ef.chunk.js"
   },
   {
     "revision": "653214c186166e49819f",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/illustratio/static/media/blurredArt.3c356756.jpg"
   },
   {
-    "revision": "02400947bd410638379fdcf85a971ca2",
+    "revision": "b91fd0ed351fbb7eb0aca9e6bb0a5b19",
     "url": "/illustratio/index.html"
   }
 ];
