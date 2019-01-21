@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/illustratio/static/media/blurredArt.3c356756.jpg"
   },
   {
-    "revision": "b91fd0ed351fbb7eb0aca9e6bb0a5b19",
+    "revision": "c7ccad461bc1bf8597077babb7d9f290",
     "url": "/illustratio/index.html"
   }
 ];
