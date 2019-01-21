@@ -10,11 +10,11 @@ illustratio is an app that informs users about the artwork around Baltimore alon
 
 ## Technologies
 
-We wanted to try out many different technologies during the hackathon to learn as much as we could. At first we were using an Amazon Linux EC2 instance with tmux running and both of us logged in to collaborate. Later we switch to GCP and tried out the Google Cloud Shell for development.
+We wanted to try out many different technologies during the hackathon to learn as much as we could. At first we were using an Amazon Linux EC2 instance with tmux running and both of us logged in to collaborate. Later we switched to GCP and tried out the Google Cloud Shell for development.
 
 Our app is running on NodeJS, initialized with create-react-app. Bootstrap for style, react-bootstrap for integrated components, React router, standard stuff.
 
-The core of our app is MongoDB Stitch. There was a great midnight workshop on it where Adam, Haley, and Aydrian inspired us to use it. MongoDB Stitch handles our users/authentication and rules/access, while mongoDB Atlas actually stores our database and collections.
+The core of our app is MongoDB Stitch. There was a great midnight workshop on it where Adam, Haley, and Aydrian inspired us to use it. MongoDB Stitch handles our users/authentication and rules/access, while mongoDB Atlas actually stores our database and collections. We're using Google Cloud Platform infrastructure for mongoDB atlas.
 
 We used Stae for the data set and focused around the Civic Hack Theme ("Solve some of the most common & pressing problems that Baltimore city officials have identified.")
 
@@ -26,6 +26,6 @@ In January 2019 I am now trying to get everything up and running and hosted more
 
 After this I realized there was no real need for that EC2 instance, so I set to get illustratio running on my local machine. To get the latest benefits (and hopefully get the start/build scripts working normally again), I made a new create-react-app. I copied over the source and tried to change as little as possible. After a bit of debugging (the btn-default class worked in bootstrap 4.1.3 even though V4 dropped it, but today I got 4.2.1 and it didn't work) I got it running and pushed it to this repository.
 
-Just for fun I got GPG signing working on my local machine for commits I push from now on (in the past only my commits from the GitHub website editor were Verified). My next steps are to host the static files on GitHub Pages and setup a CICD pipeline to automatically build when I push new code to master and host it on GitHub Pages. I don't want to leave a Jenkins container running in ECS 24/7 so I might try to just get a Lambda to `git clone` and build/push.
+Just for fun I got GPG signing working on my local machine for commits I push from now on (in the past only my commits from the GitHub website editor were Verified). I finally have the static files hosted on GitHub Pages, and able to be updated with a simple `yarn deploy`. My next step is to setup a CICD pipeline to automatically build when I push new code to master. I don't want to leave a Jenkins container running in ECS 24/7 so I might try to just get a Lambda to `git clone` and build/push.
 
-MongoDB Stitch also has a static hosting option, but I might try to move away from Stitch to avoid any charges. I also want to put an archive of the database and access rules in this repo so they're backed-up and version-controlled.
+It seems MongoDB Stitch also has a static hosting option, so I've put illustratio up there too (making for 3 total live deployments!). I want to put an archive of the MongoDB database and access rules in this repo so they're backed-up and version-controlled.
